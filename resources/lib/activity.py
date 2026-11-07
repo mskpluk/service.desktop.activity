@@ -28,7 +28,7 @@ def report():
 
 
 class Player(xbmc.Player):
-    """Play/pause from a phone app does not reset Kodi's idle time."""
+    """Player buttons in a phone app do not reset Kodi's idle time."""
 
     def __init__(self, service):
         super().__init__()
@@ -38,6 +38,14 @@ class Player(xbmc.Player):
         self.service.pending = True
 
     def onPlayBackResumed(self):
+        self.service.pending = True
+
+    # Kodi stops inhibiting the screensaver here, and the desktop would dim
+    # at once after a long video.
+    def onPlayBackStopped(self):
+        self.service.pending = True
+
+    def onPlayBackEnded(self):
         self.service.pending = True
 
 

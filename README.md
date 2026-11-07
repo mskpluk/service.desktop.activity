@@ -7,7 +7,7 @@ The desktop only sees its own keyboard and mouse. When Kodi is controlled
 by CEC or a phone app, the desktop thinks nobody is there: it dims the
 screen and may not bring it back when you use the remote. This add-on calls
 `org.freedesktop.ScreenSaver.SimulateUserActivity` when Kodi gets input (at
-most every 10 seconds) and when a video starts or resumes. When nothing
+most every 10 seconds) and when a video starts, resumes or stops. When nothing
 happens, the desktop still dims and turns off the screen as configured.
 
 ## Requirements
